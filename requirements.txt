@@ -1,0 +1,3 @@
+# campfinder runs on the Python standard library alone for everything except
+# the optional headless-browser fallback in browser.py.
+websockets>=12.0   # only needed for browser.py (Chromium over DevTools Protocol)

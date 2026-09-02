@@ -1,0 +1,700 @@
+{
+ "home": {
+  "name": "New Haven, CT",
+  "lat": 41.3083,
+  "lng": -72.9279
+ },
+ "pet_policy": {
+  "CT": {
+   "rule": "Pets are BANNED in all Connecticut STATE PARK campgrounds. Allowed ONLY at four state FOREST campgrounds: American Legion/Hawes (100103), Pachaug Green Falls (100802), Pachaug Mount Misery (100800), Salt Rock (100128).",
+   "dog_ok_park_ids": [
+    "100103",
+    "100802",
+    "100800",
+    "100128"
+   ],
+   "leash": "7 ft max; no pets in buildings or on rustic cabin sites",
+   "source": "https://ctparks.com/park-policies"
+  },
+  "MA": {
+   "rule": "Dogs allowed at most DCR campgrounds. Valid rabies vaccination certificate REQUIRED at check-in. Up to 4 pets per site, leashed. Not in cabins/yurts, on the beach, or in buildings.",
+   "dog_ok_park_ids": "most",
+   "source": "https://www.mass.gov/info-details/learn-about-campground-regulations"
+  },
+  "NY": {
+   "rule": "Most NY State Parks and DEC campgrounds allow up to 2 pets in designated loops. Proof of current rabies vaccination REQUIRED (paper certificate; metal tags not accepted). Leash max 6 ft. No pets on beaches, in picnic areas or buildings. Banned on Lake George Islands sites.",
+   "dog_ok_park_ids": "most, designated loops only",
+   "source": "https://parks.ny.gov/camping/things-to-know"
+  },
+  "RI": {
+   "rule": "Varies by campground - confirm with the park before booking.",
+   "dog_ok_park_ids": "verify",
+   "source": "https://riparks.ri.gov/camping"
+  },
+  "VT": {
+   "rule": "Vermont State Parks allow pets at tent/RV and lean-to sites; proof of current rabies vaccination is required. Pets are NOT allowed in cabins/cottages or on day-use swim beaches. Verified per-site: the booking record reports 'Pets Allowed: Domestic'.",
+   "dog_ok_park_ids": "most tent/RV sites",
+   "source": "https://www.vtstateparks.com/pets.html"
+  }
+ },
+ "_comment_site_types": "Availability counts are misleading unless you filter these out. Verified live on ReserveAmerica: Myles Standish SF showed 12 'open' sites that were all HORSE REQUIRED; Mount Greylock's 8 were all GROUP CAMPING; Rutland SP and Pulaski SP's openings were day-use SHELTERS/PAVILIONS.",
+ "excluded_site_types": [
+  "SHELTER",
+  "PAVILION",
+  "HORSE REQUIRED",
+  "GROUP",
+  "YURT",
+  "CABIN",
+  "COTTAGE",
+  "LODGE",
+  "DAY USE",
+  "PICNIC"
+ ],
+ "_comment_waterfront": "true_waterfront = sites where the water is at the edge of the site. near_water = campground on a lake but sites set back. Built from research + site maps; verify before you drive.",
+ "lake_campgrounds": [
+  {
+   "state": "MA",
+   "park_id": "32623",
+   "name": "Tolland State Forest",
+   "lake": "Otis Reservoir",
+   "waterfront": "true_waterfront",
+   "note": "Campground sits on a peninsula into the reservoir; many sites have direct water frontage.",
+   "drive_hrs": 1.9,
+   "dogs": "yes (rabies cert)"
+  },
+  {
+   "state": "MA",
+   "park_id": "32605",
+   "name": "DAR State Forest",
+   "lake": "Upper Highland Lake",
+   "waterfront": "near_water",
+   "note": "Loop sits above the lake; beach and boat launch, sites are wooded and set back.",
+   "drive_hrs": 2.2,
+   "dogs": "yes (rabies cert)"
+  },
+  {
+   "state": "MA",
+   "park_id": "32601",
+   "name": "Nickerson State Park",
+   "lake": "Flax / Cliff / Little Cliff Ponds",
+   "waterfront": "near_water",
+   "note": "Very clean kettle ponds, Cape Cod. Most sites one row back.",
+   "drive_hrs": 3.0,
+   "dogs": "yes (rabies cert)"
+  },
+  {
+   "state": "MA",
+   "park_id": "32602",
+   "name": "Beartown State Forest",
+   "lake": "Benedict Pond",
+   "waterfront": "near_water",
+   "note": "Only 12 sites, clean pond, quiet.",
+   "drive_hrs": 2.0,
+   "dogs": "yes (rabies cert)"
+  },
+  {
+   "state": "MA",
+   "park_id": "32606",
+   "name": "Erving State Forest",
+   "lake": "Laurel Lake",
+   "waterfront": "near_water",
+   "drive_hrs": 2.2,
+   "dogs": "yes (rabies cert)"
+  },
+  {
+   "state": "MA",
+   "park_id": "32625",
+   "name": "Wells State Park",
+   "lake": "Walker Pond",
+   "waterfront": "near_water",
+   "drive_hrs": 1.5,
+   "dogs": "yes (rabies cert)"
+  },
+  {
+   "state": "MA",
+   "park_id": "32610",
+   "name": "Lake Dennison Recreation Area",
+   "lake": "Lake Dennison",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 2.3,
+   "dogs": "yes (rabies cert)"
+  },
+  {
+   "state": "MA",
+   "park_id": "34901",
+   "name": "Douglas State Forest",
+   "lake": "Wallum Lake",
+   "waterfront": "near_water",
+   "drive_hrs": 1.6,
+   "dogs": "yes (rabies cert)"
+  },
+  {
+   "state": "MA",
+   "park_id": "32604",
+   "name": "Clarksburg State Park",
+   "lake": "Mauserts Pond",
+   "waterfront": "near_water",
+   "drive_hrs": 2.6,
+   "dogs": "yes (rabies cert)"
+  },
+  {
+   "state": "CT",
+   "park_id": "100802",
+   "name": "Green Falls Campground (Pachaug SF)",
+   "lake": "Green Falls Pond",
+   "waterfront": "near_water",
+   "note": "The ONLY dog-legal Connecticut public campground on still water. Rustic, very clean spring-fed pond.",
+   "drive_hrs": 1.1,
+   "dogs": "yes - state forest"
+  },
+  {
+   "state": "CT",
+   "park_id": "100109",
+   "name": "Kettletown State Park",
+   "lake": "Lake Zoar",
+   "waterfront": "near_water",
+   "drive_hrs": 0.6,
+   "dogs": "NO - state park, pets banned"
+  },
+  {
+   "state": "CT",
+   "park_id": "100110",
+   "name": "Lake Waramaug State Park",
+   "lake": "Lake Waramaug",
+   "waterfront": "true_waterfront",
+   "note": "Sites strung along the shoreline - but pets are BANNED (state park).",
+   "drive_hrs": 1.2,
+   "dogs": "NO - state park, pets banned"
+  },
+  {
+   "state": "RI",
+   "park_id": "253123",
+   "name": "George Washington Campground",
+   "lake": "Bowdish Reservoir",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 1.9,
+   "dogs": "verify"
+  },
+  {
+   "state": "RI",
+   "park_id": "252711",
+   "name": "Burlingame State Campground",
+   "lake": "Watchaug Pond",
+   "waterfront": "near_water",
+   "drive_hrs": 1.6,
+   "dogs": "verify"
+  },
+  {
+   "state": "NY",
+   "park_id": "5",
+   "name": "North-South Lake Campground",
+   "lake": "North & South Lake",
+   "waterfront": "true_waterfront",
+   "note": "Catskills; the nicest lake water in range, several genuinely lakefront sites.",
+   "drive_hrs": 2.6,
+   "dogs": "yes (rabies cert)"
+  },
+  {
+   "state": "NY",
+   "park_id": "404",
+   "name": "Lake Taghkanic State Park",
+   "lake": "Lake Taghkanic",
+   "waterfront": "near_water",
+   "drive_hrs": 1.8,
+   "dogs": "yes (rabies cert, designated loops)"
+  },
+  {
+   "state": "NY",
+   "park_id": "26",
+   "name": "Clarence Fahnestock State Park",
+   "lake": "Canopus Lake",
+   "waterfront": "near_water",
+   "drive_hrs": 1.5,
+   "dogs": "yes (rabies cert, designated loops)"
+  },
+  {
+   "state": "NY",
+   "park_id": "102",
+   "name": "Mongaup Pond",
+   "lake": "Mongaup Pond",
+   "waterfront": "true_waterfront",
+   "note": "Largest pond in the Catskills outside the reservoirs; lakefront sites.",
+   "drive_hrs": 2.5,
+   "dogs": "yes (rabies cert)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280042",
+   "name": "Woodford State Park",
+   "lake": "Adams Reservoir",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 2.8,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "Highest-elevation VT state park (2,400 ft); small clean reservoir, sites ring the water. Closest VT lake option."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280038",
+   "name": "Lake Shaftsbury State Park",
+   "lake": "Lake Shaftsbury",
+   "waterfront": "near_water",
+   "drive_hrs": 2.7,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "Only group lean-to + pavilion bookable online - not a regular campground."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280014",
+   "name": "Fort Dummer State Park",
+   "lake": "(no lake - CT River overlook)",
+   "waterfront": "none",
+   "drive_hrs": 2.3,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280018",
+   "name": "Molly Stark State Park",
+   "lake": "(no lake)",
+   "waterfront": "none",
+   "drive_hrs": 2.5,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280023",
+   "name": "Townshend State Park",
+   "lake": "Townshend Reservoir",
+   "waterfront": "near_water",
+   "drive_hrs": 2.4,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280016",
+   "name": "Jamaica State Park",
+   "lake": "West River",
+   "waterfront": "none",
+   "drive_hrs": 2.7,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "River, not a lake."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280035",
+   "name": "Emerald Lake State Park",
+   "lake": "Emerald Lake",
+   "waterfront": "near_water",
+   "drive_hrs": 3.0,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "Very clean spring-fed lake in the Taconics; sites are wooded and set back."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280024",
+   "name": "Wilgus State Park",
+   "lake": "Connecticut River",
+   "waterfront": "none",
+   "drive_hrs": 2.9,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280039",
+   "name": "Lake St Catherine State Park",
+   "lake": "Lake St Catherine",
+   "waterfront": "near_water",
+   "drive_hrs": 3.1,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280031",
+   "name": "Bomoseen State Park",
+   "lake": "Lake Bomoseen",
+   "waterfront": "near_water",
+   "drive_hrs": 3.2,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "Largest lake entirely within VT."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280036",
+   "name": "Half Moon Pond State Park",
+   "lake": "Half Moon Pond",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 3.3,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "Remote, quiet, many sites right on the pond; several paddle-in."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280032",
+   "name": "Branbury State Park",
+   "lake": "Lake Dunmore",
+   "waterfront": "near_water",
+   "drive_hrs": 3.4,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280012",
+   "name": "Camp Plymouth State Park",
+   "lake": "Echo Lake",
+   "waterfront": "near_water",
+   "drive_hrs": 3.0,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280022",
+   "name": "Silver Lake State Park",
+   "lake": "Silver Lake",
+   "waterfront": "near_water",
+   "drive_hrs": 3.2,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280015",
+   "name": "Gifford Woods State Park",
+   "lake": "Kent Pond",
+   "waterfront": "near_water",
+   "drive_hrs": 3.2,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280082",
+   "name": "Ricker Pond State Park",
+   "lake": "Ricker Pond",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 4.0,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "Groton SF; a row of sites sits directly on the pond."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280085",
+   "name": "Stillwater State Park",
+   "lake": "Lake Groton",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 4.0,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280077",
+   "name": "Kettle Pond State Park",
+   "lake": "Kettle Pond",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 4.0,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "Remote/walk-in sites on a very clean pond."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280076",
+   "name": "Green River Reservoir State Park",
+   "lake": "Green River Reservoir",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 4.2,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "Paddle-in only. Arguably the cleanest, most remote lakefront camping in New England - every site is on the water."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280078",
+   "name": "Little River State Park",
+   "lake": "Waterbury Reservoir",
+   "waterfront": "near_water",
+   "drive_hrs": 4.0,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280075",
+   "name": "Elmore State Park",
+   "lake": "Lake Elmore",
+   "waterfront": "near_water",
+   "drive_hrs": 4.2,
+   "dogs": "yes (rabies cert; not in cabins)"
+  },
+  {
+   "state": "VT",
+   "park_id": "1280079",
+   "name": "Maidstone State Park",
+   "lake": "Maidstone Lake",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 5.0,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "Exceptionally clear loon lake in the Northeast Kingdom."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280057",
+   "name": "Lake Carmi State Park",
+   "lake": "Lake Carmi",
+   "waterfront": "near_water",
+   "drive_hrs": 4.7,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "NOTE: Lake Carmi has a documented recurring cyanobacteria problem - check before swimming."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280052",
+   "name": "Burton Island State Park",
+   "lake": "Lake Champlain",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 4.6,
+   "dogs": "yes (rabies cert; not in cabins)",
+   "note": "Boat/ferry access only."
+  },
+  {
+   "state": "VT",
+   "park_id": "1280053",
+   "name": "Grand Isle State Park",
+   "lake": "Lake Champlain",
+   "waterfront": "near_water",
+   "drive_hrs": 4.5,
+   "dogs": "yes (rabies cert; not in cabins)"
+  }
+ ],
+ "_comment_private": "Private lakefront campgrounds. These are where the genuinely-on-the-water dog-friendly sites are near New Haven, but their booking engines (Campspot/DataDome, Firefly, RoverPass) block scripted access - call them.",
+ "private_lakefront": [
+  {
+   "name": "Point Folly Campground (White Memorial)",
+   "town": "Bantam/Litchfield, CT",
+   "lake": "Bantam Lake",
+   "waterfront": "true_waterfront",
+   "note": "47 sites on a peninsula into Connecticut's largest natural lake. Best geographic match to 'right on the water' near New Haven.",
+   "drive_hrs": 1.0,
+   "dogs": "yes - leashed, rabies proof may be required",
+   "rate": "$30/night",
+   "phone": "860-567-0089",
+   "book": "https://www.campspot.com/book/point-folly",
+   "platform": "Campspot"
+  },
+  {
+   "name": "Laurel Ridge Camping Area",
+   "town": "East Otis, MA",
+   "lake": "Otis Reservoir",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 1.9,
+   "dogs": "verify",
+   "phone": "413-269-4804"
+  },
+  {
+   "name": "Bowdish Lake Camping Area",
+   "town": "Glocester, RI",
+   "lake": "Bowdish Reservoir",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 1.9,
+   "dogs": "verify",
+   "phone": "401-568-8890"
+  },
+  {
+   "name": "Markham Meadows Campground",
+   "town": "East Hampton, CT",
+   "lake": "private lake",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 0.7,
+   "dogs": "verify",
+   "phone": "860-267-9738"
+  },
+  {
+   "name": "Lake Williams Campground",
+   "town": "Lebanon, CT",
+   "lake": "Lake Williams",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 1.0,
+   "dogs": "verify",
+   "phone": "860-642-7761"
+  },
+  {
+   "name": "Witch Meadow Lake Campground",
+   "town": "Salem, CT",
+   "lake": "Witch Meadow Lake",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 0.9,
+   "dogs": "verify",
+   "phone": "860-859-1542"
+  },
+  {
+   "name": "Odetah Camping Resort",
+   "town": "Bozrah, CT",
+   "lake": "Odetah Lake",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 0.9,
+   "dogs": "verify",
+   "phone": "860-889-4144"
+  },
+  {
+   "name": "Wilcox Memorial Park",
+   "town": "Stanfordville, NY",
+   "lake": "Wilcox Lake",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 1.7,
+   "dogs": "verify",
+   "phone": "845-758-6100"
+  },
+  {
+   "name": "Sylvan Lake Beach Park",
+   "town": "Hopewell Junction, NY",
+   "lake": "Sylvan Lake",
+   "waterfront": "true_waterfront",
+   "drive_hrs": 1.5,
+   "dogs": "verify",
+   "phone": "845-221-9889"
+  }
+ ],
+ "water_quality_sources": {
+  "CT": "https://portal.ct.gov/DEEP/Water/Water-Quality/Blue-Green-Algae-Blooms",
+  "Bantam Lake": "https://www.bantamlakect.com/cyano-stoplight",
+  "MA": "https://www.mass.gov/alerts/harmful-cyanobacterial-bloom-advisories-in-massachusetts",
+  "note": "Early September is peak cyanobacteria season in New England. Always check before you swim."
+ },
+ "ny_in_range_park_ids": [
+  "13",
+  "392",
+  "90",
+  "1001",
+  "19",
+  "761",
+  "409",
+  "27",
+  "64",
+  "277",
+  "297",
+  "2129",
+  "117",
+  "404",
+  "495",
+  "308",
+  "401",
+  "100",
+  "5",
+  "72",
+  "326",
+  "410",
+  "418",
+  "322",
+  "288",
+  "489"
+ ],
+ "_comment_ny_in_range": "NY has ~160 facilities, most 4-6h away (Adirondacks, Thousand Islands, Finger Lakes). The storefront exposes no coordinates, so this curated list bounds the NY scan to Hudson Valley / Taconics / Catskills / Harriman / Long Island.",
+ "newbook": [
+  {
+   "name": "Odetah Camping Resort",
+   "state": "CT",
+   "town": "Bozrah",
+   "lake": "Odetah Lake (private, 32 ac)",
+   "waterfront": "true_waterfront",
+   "dogs": "tent/RV sites yes; banned in cabins/yurts",
+   "drive_hrs": 0.9,
+   "phone": "860-889-4144",
+   "booking_url": "https://bookingsus.newbook.cloud/online/odetah_camping_resort"
+  }
+ ],
+ "campspot_notes": {
+  "api": "https://www.campspot.com/api/gator-core (header X-Client-Type: CONSUMER)",
+  "known_park_ids": {
+   "Point Folly (Bantam Lake)": 3328,
+   "Water's Edge (Lebanon CT)": 3432
+  },
+  "holiday_note": "Most CT Campspot parks enforce a 3-night minimum on Labor Day weekend; a 2-night Fri-Sun query returns nothing while Fri-Mon is wide open. Always query both."
+ },
+ "phone_only": [
+  {
+   "name": "Witch Meadow Lake Family Campground",
+   "town": "Salem, CT",
+   "lake": "Witch Meadow Lake",
+   "waterfront": "true_waterfront (separately priced waterfront class; Labor Day 3-night waterfront rate $415)",
+   "dogs": "yes, breed ban + confinement rule",
+   "phone": "860-859-1542",
+   "drive_hrs": 1.1
+  },
+  {
+   "name": "Laurel Lock Campground",
+   "town": "Oakdale, CT",
+   "lake": "Gardner Lake",
+   "waterfront": "true_waterfront (per site map)",
+   "dogs": "max 2, rabies proof",
+   "phone": "860-859-1424",
+   "drive_hrs": 1.2
+  },
+  {
+   "name": "Wilderness Lake Campground & Resort",
+   "town": "Willington, CT",
+   "lake": "Wilderness Lake (24 ac)",
+   "waterfront": "4 named waterfront sites w/ hookups",
+   "dogs": "yes",
+   "phone": "860-684-6352",
+   "drive_hrs": 1.3
+  },
+  {
+   "name": "Markham Meadows Campground",
+   "town": "East Hampton, CT",
+   "lake": "two small farm ponds",
+   "waterfront": "pond-front sites",
+   "dogs": "yes, leashed",
+   "phone": "860-267-9738",
+   "drive_hrs": 0.9
+  },
+  {
+   "name": "Laurel Ridge Camping Area",
+   "town": "East Otis, MA",
+   "lake": "Otis Reservoir",
+   "waterfront": "true_waterfront",
+   "dogs": "verify",
+   "phone": "413-269-4804",
+   "drive_hrs": 1.9
+  },
+  {
+   "name": "Sylvan Lake Beach Park",
+   "town": "Hopewell Junction, NY",
+   "lake": "Sylvan Lake",
+   "waterfront": "20 rustic tent sites near the lake",
+   "dogs": "yes, leashed",
+   "phone": "845-221-9889",
+   "drive_hrs": 1.5
+  },
+  {
+   "name": "Wilcox Memorial Park (Dutchess County)",
+   "town": "Stanfordville, NY",
+   "lake": "Wilcox Park ponds",
+   "waterfront": "true_waterfront per county map",
+   "dogs": "yes",
+   "phone": "845-298-4600 (reservations, M-F 8:30-4:30)",
+   "drive_hrs": 2.2
+  }
+ ],
+ "hipcamp_lakefront_leads": [
+  {
+   "name": "Quentins Treehouse",
+   "lake": "Lake Garfield, Monterey MA",
+   "url": "https://www.hipcamp.com/en-US/land/massachusetts-quentins-treehouse-9mxhzd82",
+   "note": "single structure literally on the water; dogs allowed"
+  },
+  {
+   "name": "Sylvan Lake Beach Park",
+   "lake": "Sylvan Lake, NY",
+   "url": "https://www.hipcamp.com/en-US/land/new-york-sylvan-lake-beach-park-pw1hrjxn"
+  },
+  {
+   "name": "North Shore Woods on Beach Pond",
+   "lake": "Beach Pond, Voluntown CT",
+   "url": "https://www.hipcamp.com/en-US/land/connecticut-north-shore-woods-on-beach-pond-kk9h8l7y",
+   "note": "not currently accepting bookings (Sep 2026)"
+  }
+ ],
+ "_comment_hipcamp": "Hipcamp's GraphQL (api.hipcamp.com/graphql, header HIPCAMP-API-KEY from the JS bundle) answers 404 to scripted POSTs even with the key, platform header and www cookies - not solved. The listing page's __NEXT_DATA__ carries the site list but ignores date params.",
+ "_comment_vt": "Vermont runs the same Aspira/ReserveAmerica storefront on its own domain (vtstateparks-visit.com, contractCode=VT). Waterfront ratings here are from park knowledge, not the booking record - VT's site details do not carry a waterfront flag. Nothing in VT is under ~2.5h from New Haven.",
+ "pets_banned_park_ids": {
+  "RI": [
+   "252761",
+   "252741"
+  ],
+  "_note": "RI: 'Pets are not permitted at Charlestown Breachway or East Beach Campgrounds, or at any RI state beach.' These sites leave the Pets Allowed field blank rather than 'N', so a blank-means-ok filter lets them through."
+ }
+}
