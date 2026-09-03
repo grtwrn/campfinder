@@ -1,0 +1,96 @@
+{
+  "_comment": "Worked example, reproduced from a real planner. Copy this, change the dates and meals, delete what you don't need.",
+  "trip": { "name": "White Mountains & Maine Trip", "start": "2026-08-21", "end": "2026-08-26" },
+
+  "dog": { "name": "Paisley" },
+  "water": true,
+  "hiking": true,
+  "cold": true,
+
+  "legs": [
+    { "name": "Leg 1", "start": "2026-08-21", "end": "2026-08-23",
+      "location": "Along the River Campground & Cabins, White Mountains, NH",
+      "confirmation": "#167704" },
+    { "name": "Leg 2", "start": "2026-08-23", "end": "2026-08-26",
+      "location": "Balsam Cove Campground, 286 Back Ridge Rd, Orland, ME 04472",
+      "confirmation": "#22657179 (tent site, water & electric)" }
+  ],
+
+  "days": [
+    { "date": "2026-08-21", "items": [
+      "Drive up, check in",
+      "Hike: Mount Pemigewasset (Indian Head) — ~3.8mi RT, ~1,150ft gain, moderate, dog-friendly",
+      "Evening: pool/river" ] },
+    { "date": "2026-08-22", "items": [
+      "REMINDER: book Cadillac Summit Rd reservation on recreation.gov — today, 10am ET (2-day rolling window, for Mon 8/24)",
+      "Morning: Mount Washington Auto Rd",
+      "Hike Mt Willard?",
+      "Relax. optional — Lower Ammonoosuc Falls" ] },
+    { "date": "2026-08-23", "items": [
+      "Morning: Hike Mount Willard — ~3.2mi RT, ~900ft gain, easy",
+      "Depart NH, drive to Balsam Cove",
+      "Hang out and paddle board" ] },
+    { "date": "2026-08-24", "items": [
+      "Sunrise at Cadillac Summit Rd (early start, ~5am)",
+      "Coffee/breakfast, ease into the morning",
+      "Ocean Path / Thunder Hole — short photo stops (Sand Beach viewpoint only, no beach — banned for dogs Jun 15–Sep 8)",
+      "Hike: North Bubble (Bubble Rock) — classic view over Jordan Pond, short/moderate, dog-friendly",
+      "Lunch: popovers at Jordan Pond House",
+      "Brief Bar Harbor town stroll (Shore Path, shops) on the way back",
+      "Back to Balsam Cove by afternoon — rest of day open, Toddy Pond" ] },
+    { "date": "2026-08-25", "items": [
+      "Local day: Toddy Pond swim/paddle at camp; optional Fort Knox + Penobscot Narrows Bridge Observatory (Bucksport, ~15 min)" ] },
+    { "date": "2026-08-26", "items": [
+      "Drive home",
+      "Stop at Maine Grains",
+      "Stop in Portland, ME" ] }
+  ],
+
+  "unplaced": ["Stonington, Raven's Nest, Schoodic — Mon/Tue already full, something would need to shift."],
+
+  "menu": [
+    { "date": "2026-08-21", "lunch": "Onigiri with fish", "dinner": "Cumin Lamb" },
+    { "date": "2026-08-22", "lunch": "Onigiri with fish", "dinner": "Shrimp Scampi" },
+    { "date": "2026-08-23", "lunch": "Tuna sandwich on sourdough", "dinner": "T-bone Steak w/ Lebne Pan Sauce" },
+    { "date": "2026-08-24", "lunch": "Jordan Pond House popovers", "dinner": "Red Cabbage w/ Chicken Sausages" },
+    { "date": "2026-08-25", "lunch": "Pesto caprese on sourdough", "dinner": "Eating out — lobster dinner (Bar Harbor)" },
+    { "date": "2026-08-26", "lunch": "Lunch from Maine Grains (bakery stop, drive home)", "dinner": "—" }
+  ],
+  "menu_notes": ["Spare lunch option (swap in if wanted): Cold sesame noodle salad"],
+
+  "recipes": {
+    "Breakfasts (all days)": ["Eggs", "Flour", "Buckwheat", "Baking powder", "Sugar", "Oatmeal", "Butter", "Maple syrup", "Milk"],
+    "Cumin Lamb": ["Lamb loin chops (8-12)", "Ground cumin", "Ground coriander", "Ground allspice", "Olive oil", "Onion", "Bell pepper"],
+    "Shrimp Scampi": ["Shrimp", "Butter", "Garlic", "Lemon", "White wine", "Parsley", "Linguine / pasta", "Red pepper flakes", "Parmesan", "Corn on the cob"],
+    "T-bone Steak w/ Lebne Pan Sauce": ["T-bone steaks — buy at butcher stop (Marcoux's, Skowhegan)", "Coarse sea salt", "Black pepper", "High-smoke-point oil (avocado/sunflower)", "Unsalted butter (4-5 tbsp)", "Garlic cloves (4-5)", "Rosemary", "Thyme", "Lebne (2-3 tbsp)", "Honey", "Carrots"],
+    "Red Cabbage w/ Chicken Sausages": ["Chicken sausages", "Red cabbage", "Onion", "Apple cider vinegar", "Olive oil"],
+    "Onigiri with fish": ["Sushi rice", "Rice vinegar", "Cooked salmon or tuna", "Nori sheets"],
+    "Cold sesame noodle salad": ["Noodles (soba or lo mein)", "Sesame oil", "Soy sauce", "Garlic", "Rice vinegar", "Cucumber", "Scallions"],
+    "Tuna sandwich on sourdough": ["Canned tuna", "Mayo", "Celery", "Sourdough bread"],
+    "Pesto caprese on sourdough": ["Pesto", "Fresh mozzarella", "Tomato", "Basil", "Sourdough bread"]
+  },
+
+  "extras": [
+    { "item": "Ice", "for": "cooler" },
+    { "item": "Strawberries", "for": "snacking" },
+    { "item": "Apples", "for": "snacking" },
+    { "item": "Yogurt", "for": "breakfasts" },
+    { "item": "Granola", "for": "breakfasts" },
+    { "item": "Miso soup", "for": "Snacks" },
+    { "item": "Ramen", "for": "Snacks" },
+    { "item": "Marshmallows", "for": "Desserts — s'mores" },
+    { "item": "Graham crackers", "for": "Desserts — s'mores" },
+    { "item": "Chocolate", "for": "Desserts — s'mores" },
+    { "item": "Cookie dough", "for": "Desserts" },
+    { "item": "Baking soda", "for": "cleaning veggies" },
+    { "item": "Tea / hot chocolate", "for": "mornings" }
+  ],
+
+  "packing_extra": {
+    "Hanging out": ["Spikeball", "Frisbee", "2 paper bags (Kan Jam)"]
+  },
+
+  "prep_extra": {
+    "-1": ["Confirm both campground reservations by phone"]
+  }
+}

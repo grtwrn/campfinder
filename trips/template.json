@@ -1,0 +1,50 @@
+{
+  "trip": { "name": "My Trip", "start": "2026-09-04", "end": "2026-09-07" },
+
+  "_flags": "Set any of these true to add a packing section. dog can be a name.",
+  "dog": { "name": "Paisley" },
+  "water": true,
+  "hiking": false,
+  "cold": false,
+
+  "legs": [
+    { "name": "Leg 1", "start": "2026-09-04", "end": "2026-09-07",
+      "location": "Campground name, address",
+      "confirmation": "#000000" }
+  ],
+
+  "days": [
+    { "date": "2026-09-04", "items": ["Drive up, check in", "Set up camp"] },
+    { "date": "2026-09-05", "items": ["Swim", "Cook out"] }
+  ],
+  "unplaced": [],
+
+  "menu": [
+    { "date": "2026-09-04", "lunch": "Sandwiches", "dinner": "Cumin Lamb" },
+    { "date": "2026-09-05", "lunch": "Sandwiches", "dinner": "Shrimp Scampi" }
+  ],
+  "menu_notes": [],
+
+  "_recipes": "Name a meal here and every ingredient lands in the shopping list, routed to an aisle, tagged with which meals need it. A recipe the menu never names is still shopped for - use that for 'Breakfasts (all days)'.",
+  "recipes": {
+    "Breakfasts (all days)": ["Eggs", "Butter", "Milk", "Oatmeal", "Maple syrup"],
+    "Cumin Lamb": ["Lamb loin chops", "Ground cumin", "Olive oil", "Onion"],
+    "Shrimp Scampi": ["Shrimp", "Butter", "Garlic", "Lemon", "Linguine / pasta"],
+    "Sandwiches": ["Sourdough bread", "Cheese", "Mustard"]
+  },
+
+  "_extras": "Things to buy that aren't tied to a meal.",
+  "extras": [
+    { "item": "Ice", "for": "cooler" },
+    { "item": "Marshmallows", "for": "Desserts — s'mores" }
+  ],
+
+  "_packing_extra": "Added on top of the built-in sections.",
+  "packing_extra": { "Hanging out": ["Frisbee"] },
+
+  "_prep_extra": "Keyed by days-before-departure: \"-2\", \"-1\", \"0\".",
+  "prep_extra": { "-1": ["Confirm reservation by phone"] },
+
+  "_aisles": "Optional. Aisle name -> keywords, to override the built-in routing.",
+  "aisles": {}
+}

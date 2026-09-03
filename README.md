@@ -201,6 +201,8 @@ fallback, not the main path.
 | `registry.json` | lakes, waterfront status, pet rules, private-park phone list |
 | `sweep.py` | bulk multi-state audit (writes JSON) |
 | `browser.py` | headless Chromium over CDP (fallback for JS-only sites) |
+| `plan.py` | trip planner — builds the 5-tab .xlsx (standalone) |
+| `trips/` | trip files: `template.json` and a full worked example |
 
 ## Private campgrounds (added)
 
@@ -218,6 +220,56 @@ python3 cli.py watch --checkin 2026-09-04 --nights 2 --dogs --private --every 15
 ```
 
 **Holiday rule:** most private CT parks enforce a 3-night minimum on Labor Day / Memorial Day / July 4. A 2-night Fri→Sun query returns nothing while Fri→Mon is wide open. Query both.
+
+## Trip planner (`plan.py`)
+
+A separate, additive tool: turns a trip description into a 5-tab planner —
+**Itinerary · Packing List · Prep Schedule · Menu · Shopping List** — as an
+`.xlsx` that imports straight into Google Sheets.
+
+```bash
+pip install openpyxl
+python3 plan.py trips/example-white-mountains.json -o planner.xlsx
+```
+
+Then in Sheets: *File > Import > Upload > Replace spreadsheet*, and select the
+`have` / `packed` / `Done?` columns and *Insert > Checkbox*.
+
+Three of the five tabs are **derived rather than typed**:
+
+- **Shopping list from the menu.** Name a meal on a day, define its
+  ingredients once, and each one is routed to a supermarket aisle and tagged
+  with every meal that needs it — `Garlic` becomes a single row reading
+  "Shrimp Scampi (Sat 8/22), T-bone Steak (Sun 8/23), Cold sesame noodle
+  salad" instead of three separate rows.
+- **Prep schedule from the departure date**, counted backwards.
+- **Packing list from flags** — `dog` (personalised by name, and it remembers
+  the rabies certificate), `water`, `hiking`, `cold`.
+
+Details that stop it producing a subtly wrong list:
+
+| Behaviour | Why |
+|---|---|
+| Recipes the menu never names are still shopped for | how "Breakfasts (all days)" and spare meals work — arriving with no eggs is the failure mode |
+| Ingredients merge on a normalised name | "Garlic cloves (4-5)" → `Garlic`, "Unsalted butter (4-5 tbsp)" → `Butter`; but "Rice" and "Rice vinegar" stay separate |
+| Aisle routing prefers the longest keyword match | otherwise PRODUCE claims "pepper" and "Red pepper flakes" ends up next to the onions |
+| Unrecognised items go to an `OTHER` aisle | nothing is silently dropped |
+
+Seed the itinerary from a campfinder search:
+
+```bash
+python3 cli.py check --checkin 2026-09-04 --nights 3 --dogs --private --json hits.json
+python3 plan.py trips/mytrip.json --from-campfinder hits.json
+```
+
+Each hit becomes a leg with its site number and booking URL, marked
+**NOT YET BOOKED**.
+
+`plan.py` imports nothing from campfinder and campfinder imports nothing from
+it — `--from-campfinder` just reads the JSON `cli.py --json` already writes.
+Start from `trips/template.json`, or `trips/example-white-mountains.json` for a
+full worked trip. Ships a Claude Code skill at `.claude/skills/camp-planner/`.
+
 
 ## Vermont
 
