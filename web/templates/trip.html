@@ -1,0 +1,77 @@
+{% extends "base.html" %}{% block title %}{{ trip.name }}{% endblock %}
+{% block body %}
+<h1>{{ trip.name }}</h1>
+<p><a class="btn small" href="{{ url_for('grocery', tid=trip.id) }}">Shopping list</a>
+   <a class="btn small ghost" href="{{ url_for('planner_xlsx', tid=trip.id) }}">Download .xlsx</a>
+   <a class="btn small ghost" href="{{ url_for('trip_json', tid=trip.id) }}">Export trip.json</a></p>
+
+<form method="post">
+<input type="hidden" name="csrf" value="{{ csrf }}">
+
+<fieldset><legend>Basics</legend>
+  <div class="row">
+    <label>Name <input name="name" value="{{ data.trip.name }}" required></label>
+    <label>Start <input name="start" type="date" value="{{ data.trip.start }}" required></label>
+    <label>End <input name="end" type="date" value="{{ data.trip.end }}" required></label>
+  </div>
+  <div class="row">
+    <label>Dog's name <input name="dog" value="{{ data.dog.name if data.dog else '' }}"
+        placeholder="leave blank if no dog"></label>
+    <label class="check"><input type="checkbox" name="water" {{ 'checked' if data.water }}> Swimming / paddling</label>
+    <label class="check"><input type="checkbox" name="hiking" {{ 'checked' if data.hiking }}> Hiking</label>
+    <label class="check"><input type="checkbox" name="cold" {{ 'checked' if data.cold }}> Cold weather</label>
+  </div>
+  <p class="hint">Each adds a section to the packing list. A dog's name
+    personalises its items and remembers the rabies certificate.</p>
+</fieldset>
+
+<fieldset><legend>Legs</legend>
+  {% set legs = data.legs or [] %}
+  <input type="hidden" name="leg_count" value="{{ legs|length + 2 }}">
+  {% for i in range(legs|length + 2) %}
+    {% set leg = legs[i] if i < legs|length else None %}
+    <div class="row leg">
+      <label>Where <input name="leg_loc_{{ i }}" value="{{ leg.location if leg else '' }}"
+          placeholder="Campground name, address"></label>
+      <label>From <input name="leg_start_{{ i }}" type="date"
+          value="{{ leg.start if leg else data.trip.start }}"></label>
+      <label>To <input name="leg_end_{{ i }}" type="date"
+          value="{{ leg.end if leg else data.trip.end }}"></label>
+      <label>Confirmation <input name="leg_conf_{{ i }}"
+          value="{{ leg.confirmation if leg else '' }}" placeholder="#12345"></label>
+    </div>
+  {% endfor %}
+</fieldset>
+
+<fieldset><legend>Day by day</legend>
+  <datalist id="book">{% for r in recipes %}<option value="{{ r }}">{% endfor %}</datalist>
+  {% for day in days %}
+    {% set key = day.isoformat() %}
+    <div class="day">
+      <h4>{{ label(day) }}</h4>
+      <label>Plan — one bullet per line
+        <textarea name="day_{{ key }}" rows="3">{{ by_day.get(key, {}).get('items', [])|join('\n') }}</textarea></label>
+      <div class="row">
+        {% for slot in ['breakfast','lunch','dinner'] %}
+        <label>{{ slot|capitalize }}
+          <input name="{{ slot }}_{{ key }}" list="book"
+                 value="{{ by_menu.get(key, {}).get(slot, '') }}"></label>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+  <p class="hint">Meals matching a cookbook recipe pull their ingredients into
+    the shopping list. Anything else (“Eating out”) is just text.</p>
+</fieldset>
+
+<fieldset><legend>Extras &amp; notes</legend>
+  <label>Shopping extras — <code>item | why</code>, one per line
+    <textarea name="extras" rows="4"
+      placeholder="Ice | cooler&#10;Marshmallows | s'mores">{{ extras_text }}</textarea></label>
+  <label>Not yet placed — one per line
+    <textarea name="unplaced" rows="2">{{ data.unplaced|join('\n') }}</textarea></label>
+</fieldset>
+
+<button class="btn">Save trip</button>
+</form>
+{% endblock %}

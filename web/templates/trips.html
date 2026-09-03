@@ -1,0 +1,29 @@
+{% extends "base.html" %}{% block title %}Trips{% endblock %}
+{% block body %}
+<h1>Trips</h1>
+<details class="panel" {% if not trips %}open{% endif %}>
+  <summary>New trip</summary>
+  <form method="post" class="row">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <label>Name <input name="name" placeholder="Labor Day weekend" required></label>
+    <label>Start <input name="start" type="date" value="{{ today }}" required></label>
+    <label>End <input name="end" type="date" value="{{ today }}" required></label>
+    <button class="btn">Create</button>
+  </form>
+</details>
+{% if trips %}
+<table class="grid">
+  <tr><th>Trip</th><th>Dates</th><th>Updated</th><th></th></tr>
+  {% for t in trips %}
+  <tr>
+    <td><a href="{{ url_for('trip_edit', tid=t.id) }}"><strong>{{ t.name }}</strong></a></td>
+    <td>{{ t.data.trip.start }} → {{ t.data.trip.end }}</td>
+    <td class="hint">{{ t.updated_at[:10] }}</td>
+    <td><form method="post" action="{{ url_for('trip_delete', tid=t.id) }}">
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <button class="link danger">delete</button></form></td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}<p class="empty">No trips yet.</p>{% endif %}
+{% endblock %}

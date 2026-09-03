@@ -1,0 +1,17 @@
+.git
+__pycache__/
+*.pyc
+web/camp.db*
+trips/*.xlsx
+*.xlsx
+.claude/
+README.md
+registry.json
+sweep.py
+cli.py
+reserveamerica.py
+campspot.py
+newbook.py
+recreation_gov.py
+water.py
+browser.py

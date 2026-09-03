@@ -191,6 +191,57 @@ still the fastest path.
 but it is slow on a Raspberry Pi and unreliable under load; treat it as a
 fallback, not the main path.
 
+## Hosted planner site (`web/`)
+
+Live at **https://campfinder-planner.fly.dev** — a small Flask site with real
+accounts, so you can keep a cookbook and build trip planners from a browser.
+
+```bash
+pip install -r requirements-web.txt
+python3 -m web                       # http://localhost:8000
+```
+
+**Upload your cookbook once, reuse it forever.** Paste recipes or upload
+`.md` / `.txt` / `.json` / `.csv`. The parser keeps ingredients and throws away
+the parts that would poison a grocery list — method steps, "Serves 4", prep
+times — so you don't end up shopping for *"Heat the oil in a large skillet"*.
+Re-importing a recipe updates it in place.
+
+Then name a meal on a day and the shopping list writes itself, using the same
+`plan.py` derivation the CLI uses — so the site and the command line can't
+drift. Export a trip as `trip.json` and the CLI takes over from there.
+
+### What is deliberately absent
+
+**The site does not search campsite availability.** Those booking systems'
+terms permit personal, non-commercial use only; running that from a shared
+host would breach them and get blocked besides. The Dockerfile doesn't even
+copy `reserveamerica.py`, `campspot.py`, `newbook.py` or `browser.py` into the
+image, so it's structural rather than a promise. Availability search stays a
+local CLI, on your own machine, at your own volume.
+
+Everything the site *does* host — recipes, menus, trips — is your own data.
+
+### Deploying your own
+
+```bash
+fly apps create <your-app-name>
+fly secrets set SECRET_KEY="$(python3 -c 'import secrets;print(secrets.token_urlsafe(48))')"
+fly volumes create camp_data --region <region> --size 1
+fly deploy
+```
+
+`fly.toml` mounts a volume at `/data` for the SQLite file. **Run exactly one
+machine** — SQLite on a single volume cannot be shared, so don't scale
+horizontally without moving to Postgres first.
+
+Security notes, since it holds passwords: scrypt hashing with a per-user salt
+(`n=2^14`, ~100ms/hash, `maxmem` set explicitly because OpenSSL's default 32 MB
+cap otherwise throws rather than degrading), server-side session tokens so
+logout genuinely revokes, CSRF tokens on every POST, per-IP login rate
+limiting, and CSP/frame/nosniff headers.
+
+
 ## Files
 
 | File | Purpose |
@@ -203,6 +254,8 @@ fallback, not the main path.
 | `browser.py` | headless Chromium over CDP (fallback for JS-only sites) |
 | `plan.py` | trip planner — builds the 5-tab .xlsx (standalone) |
 | `trips/` | trip files: `template.json` and a full worked example |
+| `web/` | the hosted planner site (Flask + SQLite) |
+| `Dockerfile`, `fly.toml` | deployment for the site only |
 
 ## Private campgrounds (added)
 

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="hero">
+  <h1>Plan the trip, not the spreadsheet.</h1>
+  <p>Keep your recipes in one place. Pick what you're eating each day.
+     The grocery list writes itself — every ingredient routed to a supermarket
+     aisle and tagged with the meals that need it.</p>
+  <p><a class="btn" href="{{ url_for('signup') }}">Create an account</a>
+     <a class="btn ghost" href="{{ url_for('login') }}">Log in</a></p>
+</section>
+<section class="cards">
+  <article><h3>Upload your cookbook</h3>
+    <p>Paste it or upload <code>.md</code>, <code>.txt</code>, <code>.json</code>
+       or <code>.csv</code>. Method steps and "Serves 4" lines are ignored —
+       only ingredients are kept.</p></article>
+  <article><h3>Build the trip</h3>
+    <p>Legs, day-by-day plans, and a meal for each slot. Pick from your
+       cookbook or type anything.</p></article>
+  <article><h3>Get the planner</h3>
+    <p>A five-tab spreadsheet — Itinerary, Packing List, Prep Schedule, Menu,
+       Shopping List — that imports straight into Google Sheets.</p></article>
+</section>
+<p class="fineprint">Campsite availability search isn't part of this site — the
+booking systems it reads only permit personal, non-commercial use. That stays a
+local command-line tool.</p>
+{% endblock %}

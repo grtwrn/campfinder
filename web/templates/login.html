@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block title %}Log in{% endblock %}
+{% block body %}
+<h1>Log in</h1>
+<form method="post" class="narrow">
+  <label>Email <input name="email" type="email" required autocomplete="email"></label>
+  <label>Password <input name="password" type="password" required
+      autocomplete="current-password"></label>
+  <button class="btn">Log in</button>
+</form>
+<p class="hint">No account? <a href="{{ url_for('signup') }}">Sign up</a>.</p>
+{% endblock %}

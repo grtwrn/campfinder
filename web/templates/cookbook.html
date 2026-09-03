@@ -1,0 +1,48 @@
+{% extends "base.html" %}{% block title %}Cookbook{% endblock %}
+{% block body %}
+<h1>Cookbook <span class="count">{{ recipes|length }}</span></h1>
+
+<details class="panel" {% if not recipes %}open{% endif %}>
+  <summary>Import recipes</summary>
+  <form method="post" action="{{ url_for('cookbook_import') }}"
+        enctype="multipart/form-data">
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <label>Paste a recipe or a whole book
+      <textarea name="text" rows="10" placeholder="# Cumin Lamb
+- Lamb loin chops
+- Ground cumin
+- Olive oil
+- 1 onion
+
+# Shrimp Scampi
+- Shrimp
+- Butter
+- Garlic
+- Linguine"></textarea></label>
+    <label>…or upload a file <input type="file" name="file"
+        accept=".md,.txt,.json,.csv,text/plain,application/json,text/csv"></label>
+    <p class="hint">Markdown, plain text, JSON or CSV. A recipe needs a name
+      line and its ingredients, one per line. Directions, "Serves 4" and prep
+      times are skipped. Importing a recipe that already exists updates it.</p>
+    <button class="btn">Import</button>
+  </form>
+</details>
+
+{% if recipes %}
+<table class="grid">
+  <tr><th>Recipe</th><th>Ingredients</th><th>Source</th><th></th></tr>
+  {% for r in recipes %}
+  <tr>
+    <td><strong>{{ r.name }}</strong></td>
+    <td class="ings">{{ r.ingredients|join(', ') }}</td>
+    <td class="hint">{{ r.source }}</td>
+    <td><form method="post" action="{{ url_for('recipe_delete', rid=r.id) }}">
+      <input type="hidden" name="csrf" value="{{ csrf }}">
+      <button class="link danger">delete</button></form></td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p class="empty">No recipes yet. Paste one above to get started.</p>
+{% endif %}
+{% endblock %}

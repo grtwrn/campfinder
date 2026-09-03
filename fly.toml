@@ -1,0 +1,32 @@
+app = "campfinder-planner"
+primary_region = "iad"
+
+[build]
+
+[env]
+  CAMP_DB = "/data/camp.db"
+  PORT = "8080"
+
+# SQLite lives on a volume, so this app runs as exactly one machine.
+# Do not scale it horizontally without moving to Postgres first.
+[mounts]
+  source = "camp_data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "suspend"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [[http_service.checks]]
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "10s"
+    method = "GET"
+    path = "/healthz"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

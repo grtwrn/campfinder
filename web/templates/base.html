@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Camp Planner{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <a class="brand" href="{{ url_for('index') }}">Camp Planner</a>
+  <nav>
+    {% if user %}
+      <a href="{{ url_for('trips') }}">Trips</a>
+      <a href="{{ url_for('cookbook') }}">Cookbook</a>
+      <form method="post" action="{{ url_for('logout') }}" class="inline">
+        <input type="hidden" name="csrf" value="{{ csrf }}">
+        <button class="link">Log out</button>
+      </form>
+    {% else %}
+      <a href="{{ url_for('login') }}">Log in</a>
+      <a class="btn small" href="{{ url_for('signup') }}">Sign up</a>
+    {% endif %}
+  </nav>
+</header>
+<main>
+  {% with msgs = get_flashed_messages() %}
+    {% if msgs %}<div class="flash">{% for m in msgs %}<p>{{ m }}</p>{% endfor %}</div>{% endif %}
+  {% endwith %}
+  {% block body %}{% endblock %}
+</main>
+<footer>Your recipes and trips are private to your account.</footer>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% block title %}Shopping list{% endblock %}
+{% block body %}
+<h1>Shopping list <span class="count">{{ trip.name }}</span></h1>
+<p><a href="{{ url_for('trip_edit', tid=trip.id) }}">← back to trip</a>
+   · <a class="btn small" href="{{ url_for('planner_xlsx', tid=trip.id) }}">Download planner (.xlsx)</a></p>
+{% if not aisles %}
+  <p class="empty">Nothing to buy yet — assign meals from your cookbook on the
+    trip page, and the list builds itself.</p>
+{% else %}
+  <p class="hint">Derived from {{ recipes|length }} recipe(s) on the menu.</p>
+  {% for aisle, rows in aisles.items() %}
+    <h3 class="aisle">{{ aisle }}</h3>
+    <table class="grid">
+      {% for item, why in rows %}
+      <tr><td class="item">{{ item }}</td><td class="hint">{{ why }}</td></tr>
+      {% endfor %}
+    </table>
+  {% endfor %}
+{% endif %}
+{% endblock %}
